@@ -50,6 +50,11 @@ public class RunVisualVMExecutor extends DefaultRunExecutor {
 		return RUN_WITH_VISUAL_VM;
 	}
 
+	@Override
+	public @NotNull String getStartActionText(@NotNull String configurationName) {
+		return getStartActionText();
+	}
+
 	public String getContextActionId() {
 		// HACK: ExecutorRegistryImpl expects this to be non-null, but we don't want any context actions for every file
 		return getId() + " context-action-does-not-exist";

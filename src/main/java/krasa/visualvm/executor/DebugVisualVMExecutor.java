@@ -2,14 +2,13 @@ package krasa.visualvm.executor;
 
 import javax.swing.*;
 
+import com.intellij.execution.executors.DefaultDebugExecutor;
 import krasa.visualvm.Resources;
 
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
-import com.intellij.execution.executors.DefaultRunExecutor;
-
-public class DebugVisualVMExecutor extends DefaultRunExecutor {
+public class DebugVisualVMExecutor extends DefaultDebugExecutor {
 	@NonNls
 	public static final String EXECUTOR_ID = "Debug with VisualVM";
 	public static final String DEBUG_WITH_VISUAL_VM = "DebugWithVisualVM";
@@ -49,6 +48,11 @@ public class DebugVisualVMExecutor extends DefaultRunExecutor {
 	@NotNull
 	public String getStartActionText() {
 		return EXECUTOR_ID;
+	}
+
+	@Override
+	public @NotNull String getStartActionText(@NotNull String configurationName) {
+		return getStartActionText();
 	}
 
 	public String getContextActionId() {
